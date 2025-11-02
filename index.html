@@ -7,240 +7,111 @@
 <style>
   body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
-    color: #f5f5f5;
+    background-color: #000;
+    color: #fff;
     margin: 0;
     padding: 20px;
-    transition: background 0.5s ease;
   }
-
-  .header h2 {
+  h2 {
     text-align: center;
     color: #25D366;
-    font-size: 1.9em;
-    margin-bottom: 30px;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+    margin-bottom: 25px;
+    border-bottom: 3px solid #25D366;
+    display: inline-block;
+    padding-bottom: 5px;
   }
-
+  .header { text-align: center; margin-bottom: 20px; }
   .form-section {
     max-width: 600px;
     margin: 0 auto 30px;
-    background: linear-gradient(to bottom, #1b1b1b, #111);
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.6);
-    transition: all 0.3s ease;
+    background: #111;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(255,255,255,0.1);
   }
-
-  .form-section label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: #f5f5f5;
-  }
-
+  .form-section label { display: block; margin-bottom: 8px; font-weight: bold; color: #fff; }
   .form-section input {
     width: 100%;
-    padding: 12px;
+    padding: 10px;
     margin-bottom: 15px;
-    border: 1px solid #333;
-    border-radius: 10px;
-    background-color: #222;
-    color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 5px;
     font-size: 1em;
-    transition: all 0.2s ease;
+    background-color: #222;
+    color: #fff;
   }
-
-  .form-section input:focus {
-    border-color: #25D366;
-    box-shadow: 0 0 8px #25D36650;
-    outline: none;
-  }
-
   .container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 25px;
-    max-width: 1080px;
+    gap: 20px;
+    max-width: 1000px;
     margin: 0 auto;
   }
-
   .product {
-    background: linear-gradient(to bottom, #1b1b1b, #111);
-    border-radius: 15px;
-    width: 280px;
-    min-height: 500px;
+    background: #111;
+    border: 1px solid #444;
+    border-radius: 10px;
+    width: 260px;
+    height: 480px;
     text-align: center;
-    padding: 20px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.6);
+    box-shadow: 0 2px 5px rgba(255,255,255,0.1);
+    padding: 15px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: all 0.3s ease;
   }
-
-  .product:hover {
-    transform: translateY(-6px) scale(1.02);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.8);
-  }
-
-  .product img {
-    width: 100%;
-    height: 180px;
-    object-fit: contain;
-    border-radius: 12px;
-    background-color: #222;
-    transition: transform 0.3s ease;
-  }
-
-  .product img:hover {
-    transform: scale(1.05);
-  }
-
-  .product h3 {
-    margin: 10px 0 5px;
-    font-size: 1.2em;
-    color: #f5f5f5;
-    text-shadow: 1px 1px 2px #000;
-  }
-
-  .product p {
-    margin: 5px 0 15px;
-    color: #ccc;
-    font-size: 0.95em;
-    min-height: 50px;
-  }
-
+  .product img { width: 100%; height: 180px; object-fit: contain; border-radius: 8px; background-color: #222; }
+  .product h3 { margin: 10px 0 5px; font-size: 1.1em; color: #fff; min-height: 40px; }
+  .product p { margin: 5px 0 10px; color: #ccc; font-size: 0.95em; min-height: 40px; }
   select {
-    width: 100%;
     padding: 10px;
-    border-radius: 10px;
-    border: 1px solid #333;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
     background: linear-gradient(to bottom, #222, #111);
-    color: #f5f5f5;
-    margin-bottom: 10px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-
-  select:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(37, 211, 102,0.4);
-  }
-
-  .quantity-control {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 10px;
-  }
-
-  .quantity-control button {
-    background-color: #25D366;
     color: #fff;
-    border: none;
-    border-radius: 8px;
-    width: 36px;
-    height: 36px;
-    font-size: 1.2em;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.2s;
   }
-
-  .quantity-control button:hover {
-    background-color: #1EBE57;
-    transform: scale(1.1);
+  select:hover { transform: translateY(-2px); box-shadow: 3px 3px 6px rgba(255,255,255,0.1); }
+  .quantity-control { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 10px; }
+  .quantity-control button {
+    background-color: #25D366; color: white; border: none; border-radius: 5px;
+    width: 30px; height: 30px; font-size: 1.2em; cursor: pointer;
   }
-
+  .quantity-control button:hover { background-color: #1EBE57; }
   .quantity-control input {
-    width: 55px;
-    text-align: center;
-    font-size: 1em;
-    border-radius: 8px;
-    border: 1px solid #333;
-    background-color: #222;
-    color: #f5f5f5;
-    padding: 6px;
-    transition: all 0.2s ease;
+    width: 50px; text-align: center; font-size: 1em; border: 1px solid #ccc;
+    border-radius: 5px; padding: 5px; background-color: #222; color: #fff;
   }
-
-  .quantity-control input:focus {
-    border-color: #25D366;
-    box-shadow: 0 0 6px #25D36650;
-    outline: none;
-  }
-
-  .total-section {
-    text-align: center;
-    margin-top: 30px;
-  }
-
-  .total-section .total {
-    font-size: 1.5em;
-    color: #f5f5f5;
-    font-weight: bold;
-    text-shadow: 1px 1px 3px #000;
-  }
-
-  .total-section .delivery {
-    color: #ccc;
-    font-size: 1em;
-  }
-
-  .order-container {
-    text-align: center;
-    margin-top: 20px;
-  }
-
+  .total-section { text-align: center; margin-top: 30px; }
+  .total-section .total { font-size: 1.2em; color: #fff; font-weight: bold; }
+  .total-section .delivery { color: #ccc; font-size: 0.95em; }
+  .order-container { text-align: center; margin-top: 20px; }
   .order-btn {
     display: inline-block;
-    width: 240px;
-    background: linear-gradient(to right, #25D366, #1EBE57);
-    color: #fff;
+    width: 220px;
+    background-color: #25D366;
+    color: white;
     text-decoration: none;
-    padding: 14px 20px;
+    padding: 12px 20px;
     border-radius: 50px;
     font-weight: bold;
-    font-size: 1.1em;
+    text-align: center;
     cursor: pointer;
     border: none;
-    transition: all 0.3s ease;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
   }
-
-  .order-btn:hover {
-    background: linear-gradient(to right, #1EBE57, #25D366);
-    transform: scale(1.03);
-  }
-
-  .order-btn:disabled {
-    background-color: #555;
-    cursor: not-allowed;
-  }
-
-  .remark {
-    display: block;
-    margin-top: 8px;
-    font-size: 0.95em;
-    color: red;
-    visibility: hidden;
-  }
-
+  .order-btn:hover { background-color: #1EBE57; }
+  .order-btn:disabled { background-color: #555; cursor: not-allowed; }
+  .remark { display: block; margin-top: 8px; font-size: 0.95em; color: red; visibility: hidden; }
   @media (max-width: 768px) {
-    .container {
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .product {
-      width: 90%;
-      min-height: auto;
-    }
-
-    .order-btn {
-      width: 80%;
-    }
+    .container { flex-direction: column; align-items: center; }
+    .product { width: 90%; max-width: 350px; height: auto; }
+    .product img { height: 160px; }
+    .order-btn { width: 80%; }
   }
 </style>
 </head>
@@ -260,11 +131,38 @@
 
 <div class="container">
 
+  <!-- Product 5 -->
+  <div class="product">
+    <img src="images/product5.jpg" alt="Floor Cleaner Honey Dew">
+    <h3>Floor Cleaner Honey Dew</h3>
+    <p>Bright honey dew scent that refreshes every room while leaving floors spotless and clean.</p>
+    <label>Price: RM 13.90</label>
+    <div class="quantity-control">
+      <button onclick="changeQty(this, -1)">-</button>
+      <input type="number" value="0" min="0" data-id="5" oninput="updateTotal()">
+      <button onclick="changeQty(this, 1)">+</button>
+    </div>
+  </div>
+
+  <!-- Product 4 -->
+  <div class="product">
+    <img src="images/product4.jpg" alt="Floor Cleaner Sandalwood">
+    <h3>Floor Cleaner Sandalwood</h3>
+    <p>Refreshing sandalwood scent with deep cleaning formula for a spotless finish.</p>
+    <label>Price: RM 19.90</label>
+    <div class="quantity-control">
+      <button onclick="changeQty(this, -1)">-</button>
+      <input type="number" value="0" min="0" data-id="4" oninput="updateTotal()">
+      <button onclick="changeQty(this, 1)">+</button>
+    </div>
+  </div>
+
   <!-- Product 1 -->
   <div class="product">
     <img src="images/product1.jpg" alt="Floor Cleaner Lavender">
     <h3>Floor Cleaner Lavender</h3>
     <p>Gentle lavender fragrance with powerful cleaning for every floor surface.</p>
+    <label>Select Combo:</label>
     <select id="combo1" onchange="updateTotal()">
       <option value="13.90">1x Lavender - RM 13.90</option>
       <option value="26.50">2x Lavender - RM 26.50</option>
@@ -281,6 +179,7 @@
     <img src="images/product2.jpg" alt="Matahari Sandal Uthipatti">
     <h3>Matahari Sandal Uthipatti</h3>
     <p>Traditional sandalwood incense symbolizing purity, calm, and a soothing natural fragrance.</p>
+    <label>Select Combo:</label>
     <select id="combo2" onchange="updateTotal()">
       <option value="24.00">3 Tubes - RM 24.00</option>
       <option value="8.50">1 Tube - RM 8.50</option>
@@ -297,6 +196,7 @@
     <img src="images/product3.jpg" alt="Javadhu Pal Sambrani">
     <h3>Javadhu Pal Sambrani</h3>
     <p>A calming blend of Javadhu essence and pure sambrani resin. Creates a soothing, divine aroma during prayer or relaxation.</p>
+    <label>Select Combo:</label>
     <select id="combo3" onchange="updateTotal()">
       <option value="14.20">30 pcs - RM 14.20</option>
       <option value="5.80">12 pcs - RM 5.80</option>
@@ -312,7 +212,7 @@
 
 <div class="total-section">
   <div class="total">Total: RM <span id="totalAmount">0.00</span></div>
-  <div class="delivery">Delivery: RM 6.50</div>
+  <div class="delivery">Exclude Delivery</div>
 </div>
 
 <div class="order-container">
@@ -333,11 +233,13 @@ function updateTotal() {
   const combos = [
     { select: 'combo1', qty: document.querySelector('[data-id="1"]').value },
     { select: 'combo2', qty: document.querySelector('[data-id="2"]').value },
-    { select: 'combo3', qty: document.querySelector('[data-id="3"]').value }
+    { select: 'combo3', qty: document.querySelector('[data-id="3"]').value },
+    { fixedPrice: 13.90, qty: document.querySelector('[data-id="5"]').value },
+    { fixedPrice: 19.90, qty: document.querySelector('[data-id="4"]').value }
   ];
   let total = 0;
   combos.forEach(item => {
-    const price = parseFloat(document.getElementById(item.select).value);
+    const price = item.select ? parseFloat(document.getElementById(item.select).value) : item.fixedPrice;
     total += price * parseInt(item.qty);
   });
   document.getElementById('totalAmount').textContent = total.toFixed(2);
@@ -350,7 +252,6 @@ function validateForm() {
   const total = parseFloat(document.getElementById('totalAmount').textContent);
   const orderBtn = document.getElementById('orderBtn');
   const remark = document.getElementById('remarkText');
-
   const valid = name && phone && total > 0;
   orderBtn.disabled = !valid;
   remark.style.visibility = valid ? 'hidden' : 'visible';
@@ -364,18 +265,37 @@ function sendOrder() {
   const products = [
     { name: 'Floor Cleaner Lavender', comboId: 'combo1', qty: document.querySelector('[data-id="1"]').value },
     { name: 'Matahari Sandal Uthipatti', comboId: 'combo2', qty: document.querySelector('[data-id="2"]').value },
-    { name: 'Javadhu Pal Sambrani', comboId: 'combo3', qty: document.querySelector('[data-id="3"]').value }
+    { name: 'Javadhu Pal Sambrani', comboId: 'combo3', qty: document.querySelector('[data-id="3"]').value },
+    { name: 'Floor Cleaner Honey Dew', fixedPrice: 13.90, qty: document.querySelector('[data-id="5"]').value },
+    { name: 'Floor Cleaner Sandalwood', fixedPrice: 19.90, qty: document.querySelector('[data-id="4"]').value }
   ];
 
   let productList = '';
   products.forEach(p => {
-    const comboText = document.getElementById(p.comboId).selectedOptions[0].text;
-    if (parseInt(p.qty) > 0) {
-      productList += `${comboText} x ${p.qty}%0A`;
+    const qty = parseInt(p.qty);
+    if (qty > 0) {
+      let comboText = '';
+      let priceText = '';
+
+      if (p.comboId) {
+        const selected = document.getElementById(p.comboId).selectedOptions[0];
+        const parts = selected.text.split(' - ');
+        comboText = parts[0];
+        priceText = parts[1];
+      } else {
+        comboText = '';
+        priceText = `RM ${p.fixedPrice.toFixed(2)}`;
+      }
+
+      if (comboText) {
+        productList += `- ${p.name} (${comboText}) - ${priceText} (x${qty})%0A`;
+      } else {
+        productList += `- ${p.name} - ${priceText} (x${qty})%0A`;
+      }
     }
   });
 
-  const message = `Hello, I would like to order:%0A%0A${productList}%0ATotal: RM ${total}%0ADelivery: RM 6.50%0A%0AName: ${name}%0APhone: ${phone}`;
+  const message = `Hello, I would like to order:%0A%0A${productList}%0ATotal: RM ${total}%0A(Exclude Delivery)%0A%0AName: ${name}%0APhone: ${phone}`;
   const whatsappLink = `https://wa.me/60173328477?text=${message}`;
   window.open(whatsappLink, '_blank');
 }
