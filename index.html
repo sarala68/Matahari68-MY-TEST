@@ -138,7 +138,12 @@
     <img src="images/product5.jpg" alt="Floor Cleaner Honey Dew">
     <h3>Floor Cleaner Honey Dew</h3>
     <p>Bright honey dew scent that refreshes every room while leaving floors spotless and clean.</p>
-    <label>Price: RM 13.90</label>
+    <label>Select Combo:</label>
+    <select id="combo5" onchange="updateTotal()">
+      <option value="11.90">Single Pack - RM 11.90</option>
+      <option value="17.90">Twin Pack – RM 17.90</option>
+      <option value="49.90">10L Jerry Can - RM 49.90</option>
+    </select>
     <div class="quantity-control">
       <button onclick="changeQty(this, -1)">-</button>
       <input type="number" value="0" min="0" data-id="5" oninput="updateTotal()">
@@ -150,8 +155,13 @@
   <div class="product">
     <img src="images/product6.jpg" alt="Lemon Fresh Dishwash">
     <h3>Lemon Fresh Dishwash</h3>
-    <p>Pleasant, fruity honeydew scent that revitalizes every room and leaves floors gleaming.</p>
-    <label>Price: RM 8.90</label>
+    <p>Pleasant, fruity honeydew scent that revitalizes every room and leaves floors gleaming.</p>
+    <label>Select Combo:</label>
+    <select id="combo6" onchange="updateTotal()">
+      <option value="7.90">Single Pack - RM 7.90</option>
+      <option value="11.90">Twin Pack – RM 11.90</option>
+      <option value="32.90">10L Jerry Can – RM 32.90</option>
+    </select>
     <div class="quantity-control">
       <button onclick="changeQty(this, -1)">-</button>
       <input type="number" value="0" min="0" data-id="6" oninput="updateTotal()">
@@ -164,7 +174,7 @@
     <img src="images/product4.jpg" alt="Floor Cleaner Sandalwood">
     <h3>Floor Cleaner Sandalwood</h3>
     <p>Refreshing sandalwood scent with deep cleaning formula for a spotless finish.</p>
-    <label>Price: RM 19.90</label>
+    <label>Price: RM 17.90</label>
     <div class="quantity-control">
       <button onclick="changeQty(this, -1)">-</button>
       <input type="number" value="0" min="0" data-id="4" oninput="updateTotal()">
@@ -179,8 +189,9 @@
     <p>Gentle lavender fragrance with powerful cleaning for every floor surface.</p>
     <label>Select Combo:</label>
     <select id="combo1" onchange="updateTotal()">
-      <option value="13.90">1x Lavender - RM 13.90</option>
-      <option value="26.50">2x Lavender - RM 26.50</option>
+      <option value="11.90">Single Pack - RM 11.90</option>
+      <option value="17.90">Twin Pack – RM 17.90</option>
+      <option value="49.90">10L Jerry Can - RM 49.90</option>
     </select>
     <div class="quantity-control">
       <button onclick="changeQty(this, -1)">-</button>
@@ -249,9 +260,9 @@ function updateTotal() {
     { select: 'combo1', qty: document.querySelector('[data-id="1"]').value },
     { select: 'combo2', qty: document.querySelector('[data-id="2"]').value },
     { select: 'combo3', qty: document.querySelector('[data-id="3"]').value },
-    { fixedPrice: 13.90, qty: document.querySelector('[data-id="5"]').value },
-    { fixedPrice: 8.90, qty: document.querySelector('[data-id="6"]').value },
-    { fixedPrice: 19.90, qty: document.querySelector('[data-id="4"]').value }
+    { select: 'combo5', qty: document.querySelector('[data-id="5"]').value },
+    { select: 'combo6', qty: document.querySelector('[data-id="6"]').value },
+    { fixedPrice: 17.90, qty: document.querySelector('[data-id="4"]').value }
   ];
   let total = 0;
   combos.forEach(item => {
@@ -282,9 +293,9 @@ function sendOrder() {
     { name: 'Floor Cleaner Lavender', comboId: 'combo1', qty: document.querySelector('[data-id="1"]').value },
     { name: 'Matahari Sandal Uthipatti', comboId: 'combo2', qty: document.querySelector('[data-id="2"]').value },
     { name: 'Javadhu Pal Sambrani', comboId: 'combo3', qty: document.querySelector('[data-id="3"]').value },
-    { name: 'Floor Cleaner Honey Dew', fixedPrice: 13.90, qty: document.querySelector('[data-id="5"]').value },
-    { name: 'Lemon Fresh Dishwash', fixedPrice: 8.90, qty: document.querySelector('[data-id="6"]').value },
-    { name: 'Floor Cleaner Sandalwood', fixedPrice: 19.90, qty: document.querySelector('[data-id="4"]').value }
+    { name: 'Floor Cleaner Honey Dew', comboId: 'combo5', qty: document.querySelector('[data-id="5"]').value },
+    { name: 'Lemon Fresh Dishwash', comboId: 'combo6', qty: document.querySelector('[data-id="6"]').value },
+    { name: 'Floor Cleaner Sandalwood', fixedPrice: 17.90, qty: document.querySelector('[data-id="4"]').value }
   ];
 
   let productList = '';
@@ -296,7 +307,7 @@ function sendOrder() {
 
       if (p.comboId) {
         const selected = document.getElementById(p.comboId).selectedOptions[0];
-        const parts = selected.text.split(' - ');
+        const parts = selected.text.split(/\s[-–]\s/); // handle both hyphen and en dash
         comboText = parts[0];
         priceText = parts[1];
       } else {
