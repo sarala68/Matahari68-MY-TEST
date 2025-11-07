@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Order Your Matahari Products</title>
+<link rel="icon" type="image/png" href="images/favicon.png" sizes="96x96">
+<link rel="shortcut icon" type="image/png" href="images/favicon.png" sizes="96x96">
 <style>
   body {
     font-family: Arial, sans-serif;
@@ -144,6 +146,19 @@
     </div>
   </div>
 
+  <!-- Product 6 -->
+  <div class="product">
+    <img src="images/product6.jpg" alt="Lemon Fresh Dishwash">
+    <h3>Lemon Fresh Dishwash</h3>
+    <p>Pleasant, fruity honeydew scent that revitalizes every room and leaves floors gleaming.</p>
+    <label>Price: RM 8.90</label>
+    <div class="quantity-control">
+      <button onclick="changeQty(this, -1)">-</button>
+      <input type="number" value="0" min="0" data-id="6" oninput="updateTotal()">
+      <button onclick="changeQty(this, 1)">+</button>
+    </div>
+  </div>
+
   <!-- Product 4 -->
   <div class="product">
     <img src="images/product4.jpg" alt="Floor Cleaner Sandalwood">
@@ -235,6 +250,7 @@ function updateTotal() {
     { select: 'combo2', qty: document.querySelector('[data-id="2"]').value },
     { select: 'combo3', qty: document.querySelector('[data-id="3"]').value },
     { fixedPrice: 13.90, qty: document.querySelector('[data-id="5"]').value },
+    { fixedPrice: 8.90, qty: document.querySelector('[data-id="6"]').value },
     { fixedPrice: 19.90, qty: document.querySelector('[data-id="4"]').value }
   ];
   let total = 0;
@@ -267,6 +283,7 @@ function sendOrder() {
     { name: 'Matahari Sandal Uthipatti', comboId: 'combo2', qty: document.querySelector('[data-id="2"]').value },
     { name: 'Javadhu Pal Sambrani', comboId: 'combo3', qty: document.querySelector('[data-id="3"]').value },
     { name: 'Floor Cleaner Honey Dew', fixedPrice: 13.90, qty: document.querySelector('[data-id="5"]').value },
+    { name: 'Lemon Fresh Dishwash', fixedPrice: 8.90, qty: document.querySelector('[data-id="6"]').value },
     { name: 'Floor Cleaner Sandalwood', fixedPrice: 19.90, qty: document.querySelector('[data-id="4"]').value }
   ];
 
